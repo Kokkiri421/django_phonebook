@@ -1,3 +1,4 @@
+from django.core.validators import RegexValidator
 from django.db import models
 
 
@@ -11,6 +12,6 @@ class Person(models.Model):
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=32, null=False, unique=True)
+    regex_validator = RegexValidator('^(telegram:@|skype:)([a-zA-Z0-9]{5,16})|((mobile:(8|\\+7))[0-9]{10})$')
+    name = models.CharField(max_length=32, null=False,validators=[regex_validator], unique=True)
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
-

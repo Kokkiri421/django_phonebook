@@ -73,7 +73,7 @@ function App() {
                         
                     } else {
                         fetchCompanies();
-                        alert("succesfully deleted!");
+                        alert("succesfully edited!");
                     }
                 },
                 (error) => {
